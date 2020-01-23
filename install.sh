@@ -1,0 +1,15 @@
+bin/magento setup:install \
+--base-url=http://www.mastering.test \
+--db-host=127.0.0.1 \
+--db-name=mastering \
+--db-user=magento \
+--db-password=magento \
+--admin-firstname=admin \
+--admin-lastname=admin \
+--admin-email=admin@admin.com \
+--admin-user=admin \
+--admin-password=admin123 \
+--language=en_US \
+--currency=MZN \
+--timezone=Africa/Maputo \
+--use-rewrites=1
