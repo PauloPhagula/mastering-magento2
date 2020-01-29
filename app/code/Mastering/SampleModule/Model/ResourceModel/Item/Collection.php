@@ -3,7 +3,6 @@
 
 namespace Mastering\SampleModule\Model\ResourceModel\Item;
 
-
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use Mastering\SampleModule\Model\Item;
 use Mastering\SampleModule\Model\ResourceModel\Item as ItemResource;
