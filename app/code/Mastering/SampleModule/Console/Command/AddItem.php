@@ -55,8 +55,6 @@ class AddItem extends Command
         $item->setIsObjectNew(true);
         $item->save();
 
-        $this->eventManager->dispatch("mastering_command", ["object" => $item]);
-
         return Cli::RETURN_SUCCESS;
     }
 }
