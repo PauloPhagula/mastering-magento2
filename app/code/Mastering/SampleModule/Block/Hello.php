@@ -15,6 +15,8 @@ class Hello extends Template
     public function __construct(
         Template\Context $context,
         CollectionFactory $collectionFactory,
+        // this data here can be accessed in templates using magic methods with the convention of get<ArrayKey>
+        // the data here is passed on layout configuration for the block using arguments. Thus allowing the same block to be reusable and customizable
         array $data = []
     ) {
         parent::__construct($context, $data);
