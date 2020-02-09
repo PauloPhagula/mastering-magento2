@@ -47,4 +47,8 @@
       <argument name="logger" xsi:type="object">MasteringLogger</argument>
     </arguments>
   </type>
+
+  <type name="Mastering\SampleModule\Console\Command\AddItem">
+    <plugin name="logger" type="Mastering\SampleModule\Plugin\Logger" />
+  </type>
 </config>
