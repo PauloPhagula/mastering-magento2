@@ -29,13 +29,13 @@ class AddItem extends Command
         $this->setName(
             "mastering:item:add"
         )->addArgument(
-           self::INPUT_KEY_NAME,
-           InputArgument::REQUIRED,
-           "Item name"
+            self::INPUT_KEY_NAME,
+            InputArgument::REQUIRED,
+            "Item name"
         )->addArgument(
-           self::INPUT_KEY_DESCRIPTION,
-           InputArgument::OPTIONAL,
-           "Item descrition"
+            self::INPUT_KEY_DESCRIPTION,
+            InputArgument::OPTIONAL,
+            "Item descrition"
         );
 
         parent::configure();
@@ -43,13 +43,13 @@ class AddItem extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-       /** @var Item $item */
-       $item = $this->itemFactory->create();
-       $item->setName($input->getArgument(self::INPUT_KEY_NAME));
-       $item->setDescription($input->getArgument(self::INPUT_KEY_DESCRIPTION));
-       $item->setIsObjectNew(true);
-       $item->save();
+        /** @var Item $item */
+        $item = $this->itemFactory->create();
+        $item->setName($input->getArgument(self::INPUT_KEY_NAME));
+        $item->setDescription($input->getArgument(self::INPUT_KEY_DESCRIPTION));
+        $item->setIsObjectNew(true);
+        $item->save();
 
-       return Cli::RETURN_SUCCESS;
+        return Cli::RETURN_SUCCESS;
     }
 }
