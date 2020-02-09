@@ -3,9 +3,9 @@
 namespace Mastering\SampleModule\Console\Command;
 
 use Magento\Framework\Console\Cli;
+use Magento\Framework\Event\ManagerInterface;
 use Mastering\SampleModule\Model\Item;
 use Mastering\SampleModule\Model\ItemFactory;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,13 +19,13 @@ class AddItem extends Command
     /** @var ItemFactory $itemFactory */
     private $itemFactory;
 
-    /** @var LoggerInterface */
-    private $logger;
+    /** @var ManagerInterface */
+    private $eventManager;
 
-    public function __construct(ItemFactory $itemFactory, LoggerInterface $logger)
+    public function __construct(ItemFactory $itemFactory, ManagerInterface $eventManager)
     {
         $this->itemFactory = $itemFactory;
-        $this->logger = $logger;
+        $this->eventManager = $eventManager;
         parent::__construct();
     }
 
@@ -55,7 +55,7 @@ class AddItem extends Command
         $item->setIsObjectNew(true);
         $item->save();
 
-        $this->logger->debug("Item was created");
+        $this->eventManager->dispatch("mastering_command", ["object" => $item]);
 
         return Cli::RETURN_SUCCESS;
     }
